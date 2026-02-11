@@ -1,0 +1,62 @@
+.about-content {
+    display: flex;
+    justify-content: center;
+}
+
+.about-text {
+    max-width: 800px;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+}
+
+.about-text p {
+    margin-bottom: 20px;
+}
+
+.interests {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.interests h3 {
+    font-size: 1.3rem;
+    color: var(--text-primary);
+    margin-bottom: 25px;
+}
+
+.interest-icons {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.interest-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.3s;
+}
+
+.interest-item:hover {
+    transform: translateY(-5px);
+}
+
+.interest-item span {
+    font-size: 2.5rem;
+    background: var(--surface-color);
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.interest-item p {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}

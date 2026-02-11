@@ -1,0 +1,44 @@
+.sticky-contact-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #25D366; /* WhatsApp Green */
+  color: white;
+  padding: 12px 24px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 999;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.sticky-icon {
+  font-size: 1.5rem;
+}
+
+.sticky-text {
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .sticky-contact-btn {
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+  }
+  
+  .sticky-text {
+    display: none; /* Hide text on mobile, icon only */
+  }
+  
+  .sticky-contact-btn {
+    width: 60px;
+    height: 60px;
+    justify-content: center;
+    padding: 0;
+  }
+}
