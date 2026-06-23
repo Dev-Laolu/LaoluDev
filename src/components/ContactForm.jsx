@@ -13,7 +13,7 @@ import './ContactForm.css';
  *
  * Until the endpoint is configured, messages fall back to a formatted mailto link.
  */
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID'; // ← replace this
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xpqgwdnd'; // 
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
