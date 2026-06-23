@@ -71,9 +71,18 @@
     margin-bottom: 15px;
 }
 
-.footer-brand p {
+.footer-creds {
     color: var(--text-secondary);
-    max-width: 300px;
+    max-width: 450px;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.footer-location {
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    font-weight: 600;
 }
 
 .footer-socials h3 {

@@ -18,7 +18,7 @@ const Header = () => {
     <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container header-container">
         <div className="logo">
-          <a href="#">Laolu.dev</a>
+          <a href="#">Laoluthecreator</a>
         </div>
         
         <button className="menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)}>
@@ -30,6 +30,8 @@ const Header = () => {
         <nav className={`nav ${isMenuOpen ? 'open' : ''}`}>
           <ul className="nav-list">
             <li><a href="#about" onClick={() => setIsMenuOpen(false)}>About</a></li>
+            <li><a href="#services" onClick={() => setIsMenuOpen(false)}>Services</a></li>
+            <li><a href="#projects" onClick={() => setIsMenuOpen(false)}>Projects</a></li>
             <li><a href="#experience" onClick={() => setIsMenuOpen(false)}>Experience</a></li>
             <li><a href="#education" onClick={() => setIsMenuOpen(false)}>Education</a></li>
             <li><a href="#skills" onClick={() => setIsMenuOpen(false)}>Skills</a></li>

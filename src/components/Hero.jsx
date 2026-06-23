@@ -22,16 +22,16 @@ const Hero = () => {
           <p className="hero-greeting">Hi, I'm</p>
           <h1 className="hero-name">Hopewell Olayinka Olaoluwa</h1>
           <h2 className="hero-title">
-            <span className="highlight">Frontend Developer</span> & <span className="highlight">Creative Designer</span>
+            <span className="highlight">Computer Engineer</span> & <span className="highlight">Digital Content Strategist</span>
           </h2>
           <p className="hero-description">
-            I'm a Video Editor and Social Media Manager with 4+ years of experience.
-            Passionate about gaming, travelling, and movies.
-            Creating high-quality graphics and engaging digital experiences.
+            I help brands grow through content strategy, social media management, graphic design, and high-performing video content.
           </p>
           <div className="hero-actions">
-            <a href="#contact" className="btn">Get in Touch</a>
-            <a href="#experience" className="btn btn-outline">View Work</a>
+            <a href="#projects" className="btn">View My Work</a>
+            <a href="/Resume.pdf" download="Hopewell_Olayinka_Resume.pdf" className="btn btn-outline">Download Resume</a>
+            <a href="https://laolu-collective.vercel.app/" target="_blank" rel="noopener noreferrer" className="btn btn-fancy">Download My Work</a>
+            <a href="#contact" className="btn btn-primary-alt">Let's Work Together</a>
           </div>
         </div>
         

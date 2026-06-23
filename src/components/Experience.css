@@ -2,9 +2,17 @@
     background-color: var(--background-color);
 }
 
+.experience-intro {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: -20px auto 50px;
+}
+
 .timeline {
     position: relative;
-    max-width: 1000px; /* Increased width */
+    max-width: 1000px;
     margin: 0 auto;
 }
 
@@ -36,46 +44,29 @@
     left: 50%;
 }
 
-.education-grid {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 30px;
-}
-
-.education-card {
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
-  max-width: 500px; /* Adjusted for side-by-side */
-  width: 100%;
-  background-color: var(--background-color);
-  padding: 20px;
-  border-radius: var(--border-radius);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  transition: transform 0.3s;
-}
-
-.education-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--primary-color);
-}
-
-.timeline-item::after {
-    content: '';
+.timeline-dot {
     position: absolute;
-    width: 20px;
-    height: 20px;
-    right: -10px;
-    background-color: var(--primary-color);
-    border: 4px solid var(--surface-color);
-    top: 24px;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
-    z-index: 2;
+    background-color: var(--primary-color);
+    border: 3px solid var(--background-color);
+    top: 34px;
+    z-index: 3;
+    transition: background-color var(--transition-speed);
 }
 
-.timeline-item:nth-child(even)::after {
-    left: -10px;
+.timeline-item:nth-child(odd) .timeline-dot {
+    right: -8px;
+}
+
+.timeline-item:nth-child(even) .timeline-dot {
+    left: -8px;
+}
+
+.timeline-item:hover .timeline-dot {
+    background-color: var(--accent-color);
+    box-shadow: 0 0 10px var(--accent-color);
 }
 
 .timeline-content {
@@ -100,30 +91,48 @@
     font-size: 1.25rem;
     margin-bottom: 5px;
     color: var(--text-primary);
+    font-weight: 700;
 }
 
 .company {
     font-size: 1rem;
     color: var(--text-secondary);
     font-weight: 500;
-}
-
-.location {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
     margin-bottom: 15px;
-    font-style: italic;
 }
 
 .achievements {
-    list-style-type: disc;
-    padding-left: 20px;
+    list-style-type: none;
 }
 
 .achievements li {
     margin-bottom: 8px;
     color: var(--text-secondary);
+    font-size: 0.92rem;
+    position: relative;
+    padding-left: 15px;
+    line-height: 1.5;
+}
+
+.achievements li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+}
+
+.show-more-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.show-more-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     font-size: 0.95rem;
+    transition: all var(--transition-speed);
 }
 
 @media (max-width: 768px) {
@@ -134,18 +143,14 @@
     .timeline-item {
         width: 100%;
         padding-left: 70px;
-        padding-right: 25px;
+        padding-right: 20px;
     }
     
     .timeline-item:nth-child(even) {
         left: 0;
     }
     
-    .timeline-item::after {
-        left: 21px;
-    }
-    
-    .timeline-item:nth-child(even)::after {
-        left: 21px;
+    .timeline-dot {
+        left: 23px !important;
     }
 }

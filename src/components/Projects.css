@@ -1,0 +1,198 @@
+.projects {
+  background: rgba(15, 23, 42, 0.5);
+}
+
+.projects-intro {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: -20px auto 50px;
+}
+
+.projects-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--surface-color);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  padding: 30px;
+  overflow: hidden;
+  transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.project-card:hover {
+  transform: none; /* Let timeline and other lists hover, but project cards remain stable to prevent layout shifting during expand */
+  border-color: rgba(100, 108, 255, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.project-header h3 {
+  font-size: 1.8rem;
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.project-role-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background-color: rgba(56, 189, 248, 0.1);
+  color: var(--accent-color);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+.badge-icon {
+  font-size: 0.8rem;
+}
+
+.project-body {
+  margin-bottom: 20px;
+}
+
+.body-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.heading-icon {
+  color: var(--primary-color);
+  font-size: 0.95rem;
+}
+
+.project-responsibilities {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.project-responsibilities li {
+  position: relative;
+  padding-left: 20px;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.project-responsibilities li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.project-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 20px;
+  margin-top: 10px;
+}
+
+.case-study-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: color var(--transition-speed);
+  padding: 5px 0;
+}
+
+.case-study-toggle-btn:hover {
+  color: var(--secondary-color);
+}
+
+.arrow-icon {
+  font-size: 0.8rem;
+  transition: transform var(--transition-speed);
+}
+
+.case-study-content {
+  overflow: hidden;
+}
+
+.case-study-inner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding-top: 20px;
+  margin-top: 15px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.05);
+}
+
+.case-step {
+  background: rgba(255, 255, 255, 0.02);
+  padding: 15px;
+  border-radius: var(--border-radius);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.case-step h5 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+.case-study-inner .case-step:nth-child(1) h5 {
+  color: #ef4444; /* red for challenge */
+}
+
+.case-study-inner .case-step:nth-child(2) h5 {
+  color: var(--accent-color); /* cyan for solution */
+}
+
+.case-study-inner .case-step:nth-child(3) h5 {
+  color: #10b981; /* green for results */
+}
+
+.case-step p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .project-responsibilities {
+    grid-template-columns: 1fr;
+  }
+  
+  .case-study-inner {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .project-header h3 {
+    font-size: 1.5rem;
+  }
+}

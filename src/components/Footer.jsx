@@ -20,21 +20,23 @@ const Footer = () => {
 
                 <div className="footer-top">
                     <div className="footer-brand">
-                        <h2>Laolu.dev</h2>
-                        <p>Creating digital experiences that matter.</p>
+                        <h2>Olayinka Hopewell Olaoluwa</h2>
+                        <p className="footer-creds">Computer Engineer • Digital Content Strategist • Creative Designer</p>
+                        <p className="footer-location">📍 Lagos, Nigeria</p>
                     </div>
                     <div className="footer-socials">
-                        <h3>Connect</h3>
+                        <h3>Connect & Info</h3>
                         <div className="social-links">
-                             <a href="https://sites.google.com/view/laoluthecreator/" target="_blank" rel="noopener noreferrer" className="social-link">Google Site</a>
-                             <a href="https://www.linkedin.com/in/hopewellolayinka" target="_blank" rel="noopener noreferrer" className="social-link"><FaLinkedin /> LinkedIn</a>
+                             <a href="mailto:olayinkahopewell@gmail.com" className="social-link">📧 Email</a>
                              <a href="https://github.com/Dev-Laolu" target="_blank" rel="noopener noreferrer" className="social-link"><FaGithub /> GitHub</a>
-                             <a href="https://www.instagram.com/laoluthedesigner/" target="_blank" rel="noopener noreferrer" className="social-link"><FaInstagram /> Instagram</a>
+                             <a href="https://www.linkedin.com/in/hopewell-olayinka-olaoluwa/" target="_blank" rel="noopener noreferrer" className="social-link"><FaLinkedin /> LinkedIn</a>
+                             <a href="/Resume.pdf" download="Hopewell_Olayinka_Resume.pdf" className="social-link">📄 Download Resume</a>
+                             <a href="https://sites.google.com/view/laoluthecreator/" target="_blank" rel="noopener noreferrer" className="social-link">🌐 Laoluthecreator</a>
                         </div>
                     </div>
                 </div>
                 <div className="footer-bottom">
-                    <p>&copy; {new Date().getFullYear()} Hopewell Olayinka Olaoluwa. All rights reserved.</p>
+                    <p>&copy; {new Date().getFullYear()} Olayinka Hopewell Olaoluwa. All Rights Reserved.</p>
                 </div>
             </div>
         </footer>
