@@ -1,8 +1,8 @@
 import React from 'react';
-import { FaWhatsapp, FaPhone, FaLinkedin, FaGithub, FaInstagram } from 'react-icons/fa';
+import { FaWhatsapp, FaPhone, FaLinkedin, FaGithub, FaLock } from 'react-icons/fa';
 import './Footer.css';
 
-const Footer = () => {
+const Footer = ({ onNavigate }) => {
     return (
         <footer className="footer" id="contact">
             <div className="container footer-content">
@@ -31,7 +31,12 @@ const Footer = () => {
                              <a href="https://github.com/Dev-Laolu" target="_blank" rel="noopener noreferrer" className="social-link"><FaGithub /> GitHub</a>
                              <a href="https://www.linkedin.com/in/hopewell-olayinka-olaoluwa/" target="_blank" rel="noopener noreferrer" className="social-link"><FaLinkedin /> LinkedIn</a>
                              <a href="/Resume.pdf" download="Hopewell_Olayinka_Resume.pdf" className="social-link">📄 Download Resume</a>
-                             <a href="https://sites.google.com/view/laoluthecreator/" target="_blank" rel="noopener noreferrer" className="social-link">🌐 Laoluthecreator</a>
+                             <a href="https://sites.google.com/view/laoluthecreator/" target="_blank" rel="noopener noreferrer" className="social-link">🌐 Portfolio Site</a>
+                             {onNavigate && (
+                               <a href="#login" onClick={(e) => { e.preventDefault(); onNavigate('login'); }} className="social-link admin-link">
+                                 <FaLock size={12} /> Admin CMS
+                               </a>
+                             )}
                         </div>
                     </div>
                 </div>

@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
+import { FaChevronDown, FaChevronUp, FaBriefcase, FaBuilding, FaCalendarAlt } from 'react-icons/fa';
 import './Experience.css';
 
 const Experience = () => {
-  const [showAll, setShowAll] = useState(false);
+  const [expandedId, setExpandedId] = useState(null);
+
+  const toggleExpand = (id) => {
+    setExpandedId(prev => (prev === id ? null : id));
+  };
 
   const experiences = [
     {
@@ -106,56 +110,74 @@ const Experience = () => {
     }
   ];
 
-  // Show first 3 by default, toggle others
-  const visibleExperiences = showAll ? experiences : experiences.slice(0, 3);
-
   return (
     <section className="section experience" id="experience">
       <div className="container">
         <h2 className="section-title">Work Experience</h2>
         <p className="experience-intro">
-          My professional history bridging creative direction, digital strategy, and computer engineering support.
+          A compact summary of my professional journey. Tap any role to reveal details.
         </p>
 
-        <div className="timeline">
-          {visibleExperiences.map((exp) => (
-            <motion.div 
-              key={exp.id} 
-              className="timeline-item"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <div className="timeline-dot"></div>
-              <div className="timeline-content card">
-                <span className="date">{exp.period}</span>
-                <h3 className="role">{exp.role}</h3>
-                <p className="company">{exp.company}</p>
-                <ul className="achievements">
-                  {exp.achievements.map((item, index) => (
-                    <li key={index}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+        <div className="compact-experience-list">
+          {experiences.map((exp) => {
+            const isExpanded = expandedId === exp.id;
+            return (
+              <motion.div
+                key={exp.id}
+                className={`compact-exp-card card ${isExpanded ? 'expanded' : ''}`}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4 }}
+                onClick={() => toggleExpand(exp.id)}
+              >
+                <div className="compact-exp-header">
+                  <div className="compact-exp-main-info">
+                    <div className="compact-exp-role-row">
+                      <FaBriefcase className="exp-icon" />
+                      <h3 className="compact-role">{exp.role}</h3>
+                    </div>
+                    <div className="compact-meta-row">
+                      <span className="compact-company"><FaBuilding className="meta-icon" /> {exp.company}</span>
+                      <span className="compact-date"><FaCalendarAlt className="meta-icon" /> {exp.period}</span>
+                    </div>
+                  </div>
 
-        {experiences.length > 3 && (
-          <div className="show-more-wrapper">
-            <button 
-              onClick={() => setShowAll(!showAll)} 
-              className="btn btn-outline show-more-btn"
-            >
-              {showAll ? (
-                <>Show Less Experience <FaChevronUp /></>
-              ) : (
-                <>Show All Experience ({experiences.length}) <FaChevronDown /></>
-              )}
-            </button>
-          </div>
-        )}
+                  <button 
+                    className="compact-toggle-btn"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      toggleExpand(exp.id);
+                    }}
+                    aria-expanded={isExpanded}
+                    aria-label="Toggle details"
+                  >
+                    <span className="toggle-label">{isExpanded ? 'Hide' : 'Details'}</span>
+                    {isExpanded ? <FaChevronUp /> : <FaChevronDown />}
+                  </button>
+                </div>
+
+                <AnimatePresence>
+                  {isExpanded && (
+                    <motion.div
+                      className="compact-exp-details"
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <ul className="compact-achievements">
+                        {exp.achievements.map((item, index) => (
+                          <li key={index}>{item}</li>
+                        ))}
+                      </ul>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

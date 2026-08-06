@@ -34,14 +34,50 @@
   gap: 32px;
 }
 
-.nav-list a {
+.nav-list a:not(.nav-work-badge) {
+  position: relative;
   font-weight: 500;
   font-size: 0.95rem;
   color: var(--text-secondary);
+  transition: color 0.25s ease;
+  padding-bottom: 4px;
 }
 
-.nav-list a:hover {
-  color: var(--primary-color);
+.nav-list a:not(.nav-work-badge)::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary-color), #a855f7);
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+.nav-list a:not(.nav-work-badge):hover {
+  color: var(--text-primary);
+}
+
+.nav-list a:not(.nav-work-badge):hover::after {
+  width: 100%;
+}
+
+.nav-list a.nav-work-badge {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(168, 85, 247, 0.15));
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  padding: 6px 14px;
+  border-radius: 20px;
+  color: #c084fc;
+  font-weight: 600;
+}
+
+.nav-list a.nav-work-badge:hover,
+.nav-list a.nav-work-badge.active {
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 4px 12px rgba(168, 85, 247, 0.3);
 }
 
 .menu-toggle {

@@ -1,0 +1,13 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Portfolio Collection Rules
+    match /portfolio/{document=**} {
+      // Allow public read access so site visitors can view portfolio items
+      allow read: if true;
+      
+      // Allow write access for admin management
+      allow write: if true;
+    }
+  }
+}
